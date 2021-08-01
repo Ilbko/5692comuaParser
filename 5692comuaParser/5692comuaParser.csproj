@@ -59,7 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Model\Custom Element\NewsControl.xaml">
+    <Page Include="Model\Custom Element\View\NewsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,9 +71,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Custom Element\NewsControl.xaml.cs">
+    <Compile Include="Model\Custom Element\ViewModel\NewsViewModel.cs" />
+    <Compile Include="Model\Custom Element\View\NewsControl.xaml.cs">
       <DependentUpon>NewsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\MainLogic.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
@@ -109,7 +111,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Image1.bmp" />
+    <Folder Include="Model\Custom Element\Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

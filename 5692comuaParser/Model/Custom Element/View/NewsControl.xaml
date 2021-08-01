@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_5692comuaParser.Model.Custom_Element"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="1000" FontFamily="Global Sans Serif">
+             d:DesignHeight="300" d:DesignWidth="1000" FontFamily="Roboto">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -35,20 +35,20 @@
             </StackPanel.Resources>
 
             <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3">
-                <TextBlock x:Name="categoryTextBlock">Общество</TextBlock>
+                <TextBlock x:Name="categoryTextBlock" Text="{Binding CategoryString}" Cursor="IBeam"></TextBlock>
             </Border>
-            <TextBlock x:Name="dateTimeTextBlock">13:40, сегодня</TextBlock>
+            <TextBlock x:Name="dateTimeTextBlock" Text="{Binding DateTimeString}" Cursor="IBeam"></TextBlock>
         </StackPanel>
 
-        <TextBlock x:Name="headerTextBlock" Grid.Column="0" Grid.Row="1" FontSize="24" FontWeight="Bold">На Днепропетровщине прогнозируется высокая вероятность пожаров</TextBlock>
-        <TextBlock x:Name="bodyTextBlock" Grid.Column="0" Grid.Row="2" FontSize="13" LineHeight="20">
+        <TextBlock x:Name="headerTextBlock" Text="{Binding HeaderString}" Grid.Column="0" Grid.Row="1" FontSize="24" FontWeight="Bold" Cursor="Hand" MouseEnter="headerTextBlock_MouseEnter"></TextBlock>
+        <TextBlock x:Name="bodyTextBlock" Text="{Binding BodyString}" Grid.Column="0" Grid.Row="2" FontSize="13" LineHeight="20" Cursor="IBeam">
             <TextBlock.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
                     <GradientStop Offset="0.768"/>
                 </LinearGradientBrush>
-            </TextBlock.OpacityMask>30 июля исполняется 30 дней старта рынка земли - основной события земельной реформы. Министр аграрной политики и продовольствия Роман Лещенко отмечает, что рынок земли сегодня полноценно функционирует - он прозрачный, эффективный и каждый может реализовать свое право распоряжаться землей: продать, передать по наследству, сдавать в аренду или самому хозяйничать на этой земле. - Месяц назад, когда запускали рынок земли, вас пытались напугать массовой скупкой...</TextBlock>
+            </TextBlock.OpacityMask></TextBlock>
 
-        <Image x:Name="newsImage" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill" Source="C:\Users\Илья\source\repos\5692comuaParser\5692comuaParser\bin\Debug\test.jpeg"></Image>
+        <Image x:Name="newsImage" Source="{Binding ImagePath}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"></Image>
     </Grid>
 </UserControl>
