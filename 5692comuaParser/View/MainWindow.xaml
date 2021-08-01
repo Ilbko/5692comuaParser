@@ -24,7 +24,11 @@
             <TextBlock></TextBlock>
             <TextBlock></TextBlock>
         </StackPanel>
-        <TextBlock Grid.Column="1" Grid.Row="2" FontSize="36" FontWeight="Bold">Новости Каменского</TextBlock>
-        <StackPanel Grid.Column="1" x:Name="newsStackPanel" Grid.Row="3" Orientation="Vertical"></StackPanel>
+        
+        <ScrollViewer Grid.Column="1" Grid.Row="3">
+            <StackPanel x:Name="newsStackPanel" Orientation="Vertical">
+                <TextBlock Grid.Column="1" Grid.Row="2" FontSize="36" FontWeight="Bold">Новости Каменского</TextBlock>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

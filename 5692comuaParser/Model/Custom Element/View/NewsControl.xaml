@@ -40,7 +40,7 @@
             <TextBlock x:Name="dateTimeTextBlock" Text="{Binding DateTimeString}" Cursor="IBeam"></TextBlock>
         </StackPanel>
 
-        <TextBlock x:Name="headerTextBlock" Text="{Binding HeaderString}" Grid.Column="0" Grid.Row="1" FontSize="24" FontWeight="Bold" Cursor="Hand" MouseEnter="headerTextBlock_MouseEnter"></TextBlock>
+        <TextBlock x:Name="headerTextBlock" Text="{Binding HeaderString}" Grid.Column="0" Grid.Row="1" FontSize="24" FontWeight="Bold" Cursor="Hand" MouseEnter="headerTextBlock_MouseEnter" MouseLeave="headerTextBlock_MouseLeave"></TextBlock>
         <TextBlock x:Name="bodyTextBlock" Text="{Binding BodyString}" Grid.Column="0" Grid.Row="2" FontSize="13" LineHeight="20" Cursor="IBeam">
             <TextBlock.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">

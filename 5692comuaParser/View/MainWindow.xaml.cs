@@ -10,8 +10,8 @@ namespace _5692comuaParser
     {
         public MainWindow()
         {
-            this.DataContext = new MainViewModel();
             InitializeComponent();
+            this.DataContext = new MainViewModel(ref this.newsStackPanel);
         }
     }
 }
