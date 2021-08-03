@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace _5692comuaParser.Model.Custom_Element.ViewModel
 {
@@ -33,8 +35,8 @@ namespace _5692comuaParser.Model.Custom_Element.ViewModel
             set { bodyString = value; OnPropertyChanged("BodyString"); }
         }
 
-        private string imagePath;
-        public string ImagePath
+        private ImageSource imagePath;
+        public ImageSource ImagePath
         {
             get { return imagePath; }
             set { imagePath = value; OnPropertyChanged("ImagePath"); }

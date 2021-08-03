@@ -5,30 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_5692comuaParser" xmlns:Control="clr-namespace:_5692comuaParser.Model.Custom_Element"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" FontFamily="Roboto">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-            <ColumnDefinition Width="8*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
+        Title="MainWindow" Height="450" Width="800" FontFamily="Roboto" Closed="Window_Closed">
+    <ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="8*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
 
-        
-        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-            <TextBlock></TextBlock>
-            <TextBlock></TextBlock>
-        </StackPanel>
-        
-        <ScrollViewer Grid.Column="1" Grid.Row="3">
-            <StackPanel x:Name="newsStackPanel" Orientation="Vertical">
-                <TextBlock Grid.Column="1" Grid.Row="2" FontSize="36" FontWeight="Bold">Новости Каменского</TextBlock>
+            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                <TextBlock></TextBlock>
+                <TextBlock></TextBlock>
             </StackPanel>
-        </ScrollViewer>
-    </Grid>
+
+            <TextBlock Grid.Column="1" Grid.Row="2" FontSize="36" FontWeight="Bold">Новости Каменского</TextBlock>
+            <StackPanel Grid.Column="1" Grid.Row="3" x:Name="newsStackPanel" Orientation="Vertical"></StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Window>
