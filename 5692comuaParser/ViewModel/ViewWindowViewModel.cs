@@ -1,6 +1,8 @@
 ﻿using _5692comuaParser.Model;
 using HtmlAgilityPack;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -21,6 +23,13 @@ namespace _5692comuaParser.ViewModel
         {
             get { return imagePath; }
             set { imagePath = value; OnPropertyChanged("ImagePath"); }
+        }
+
+        private string mainParagraph;
+        public string MainParagraph
+        {
+            get { return mainParagraph; }
+            set { mainParagraph = value; OnPropertyChanged("MainParagraph"); }
         }
 
         private string bodyString;
@@ -49,7 +58,13 @@ namespace _5692comuaParser.ViewModel
             HtmlDocument document = new HtmlDocument();
             document.LoadHtml(content);
 
-            this.BodyString = document.DocumentNode.SelectSingleNode("//div[@class=\'article-text\']").InnerText;
+            //this.BodyString = document.DocumentNode.SelectSingleNode("//div[@class=\'article-text\']").InnerText;
+            List<HtmlNode> paragraphs = document.DocumentNode.SelectNodes("//div[@class=\'article-text\']/p").ToList();
+
+            mainParagraph = paragraphs[0].InnerText;
+            paragraphs.Remove(paragraphs[0]);
+
+            paragraphs.ForEach(x => BodyString += "\r\n\r\n" + x.InnerText);
         }
     }
 }

@@ -2,8 +2,6 @@
 using _5692comuaParser.View.ViewModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace _5692comuaParser.Model.Custom_Element.ViewModel
 {

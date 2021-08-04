@@ -9,14 +9,20 @@
     <ScrollViewer>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
             <TextBlock x:Name="headerTextBlock" Text="{Binding HeaderString}" Grid.Row="0" FontSize="24" FontWeight="Bold" Margin="20" TextWrapping="Wrap"></TextBlock>
             <Image x:Name="newsImage" Source="{Binding ImagePath}" Grid.Row="1" Stretch="Fill" Margin="20"  Width="700" Height="250"></Image>
-            <TextBlock x:Name="bodyTextBlock" Text="{Binding BodyString}" Grid.Row="2" FontSize="16" LineHeight="20" Margin="20" TextWrapping="Wrap"></TextBlock>
+            <!--<TextBlock x:Name="bodyTextBlock" Text="{Binding BodyString}" Grid.Row="2" FontSize="16" LineHeight="20" Margin="20" TextWrapping="Wrap"></TextBlock>-->
+            <TextBlock x:Name="bodyTextBlock" Grid.Row="2" FontSize="16" LineHeight="20" Margin="20" TextWrapping="Wrap">
+                <TextBlock.Inlines>
+                    <Run FontWeight="Bold" Text="{Binding MainParagraph}"></Run>
+                    <Run Text="{Binding BodyString}"></Run>
+                </TextBlock.Inlines>
+            </TextBlock>
         </Grid>
     </ScrollViewer>
 </Window>
