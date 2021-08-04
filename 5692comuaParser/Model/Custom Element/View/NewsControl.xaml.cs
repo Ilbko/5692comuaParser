@@ -1,5 +1,6 @@
 ﻿using _5692comuaParser.Model.Custom_Element.ViewModel;
 using System;
+using System.IO;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,13 +24,16 @@ namespace _5692comuaParser.Model.Custom_Element
                 client.DownloadFile(imagePath, $"{MainLogic.folderName}\\{++MainLogic.count}.jpg");
             }
 
-            ImageSource imageSource = null;
-            //убрать, использует файл
-            try
-            {
-                imageSource = new ImageSourceConverter().ConvertFromString($"{MainLogic.folderName}\\{MainLogic.count}.jpg") as ImageSource;
-            }
-            catch (System.Exception e) { }
+            /*ImageSource использует агрессивное кеширование при загрузке фотографии, что приводило к невозможности
+            их удаления (файл занимался другим процессом). Оказывается, что в качестве источника фотографии отлично подойдёт
+            массив байтов, который сейчас и используется.*/
+
+            //ImageSource imageSource = null;
+            //try
+            //{
+            //    imageSource = new ImageSourceConverter().ConvertFromString($"{MainLogic.folderName}\\{MainLogic.count}.jpg") as ImageSource;
+            //}
+            //catch (System.Exception e) { }
 
             this.DataContext = new NewsViewModel()
             {
@@ -37,7 +41,7 @@ namespace _5692comuaParser.Model.Custom_Element
                 DateTimeString = dateTimeString,
                 HeaderString = headerString,
                 BodyString = bodyString,
-                ImagePath = imageSource
+                ImagePath = File.ReadAllBytes($"{MainLogic.folderName}\\{MainLogic.count}.jpg")
             };
         }
 

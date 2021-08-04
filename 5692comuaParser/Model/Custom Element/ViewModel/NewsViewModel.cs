@@ -35,8 +35,9 @@ namespace _5692comuaParser.Model.Custom_Element.ViewModel
             set { bodyString = value; OnPropertyChanged("BodyString"); }
         }
 
-        private ImageSource imagePath;
-        public ImageSource ImagePath
+
+        private byte[] imagePath;
+        public byte[] ImagePath
         {
             get { return imagePath; }
             set { imagePath = value; OnPropertyChanged("ImagePath"); }

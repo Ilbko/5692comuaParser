@@ -49,6 +49,6 @@
                 </LinearGradientBrush>
             </TextBlock.OpacityMask></TextBlock>
 
-        <Image x:Name="newsImage" Source="{Binding ImagePath}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"></Image>
+        <Image x:Name="newsImage" Source="{Binding ImagePath}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill" Width="500" Height="250"></Image>
     </Grid>
 </UserControl>
