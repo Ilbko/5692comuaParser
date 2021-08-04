@@ -1,0 +1,22 @@
+﻿<Window x:Class="_5692comuaParser.View.ViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_5692comuaParser.View"
+        mc:Ignorable="d"
+        Title="ViewWindow" Height="450" Width="800" FontFamily="Roboto">
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="headerTextBlock" Text="{Binding HeaderString}" Grid.Row="0" FontSize="24" FontWeight="Bold" Margin="20" TextWrapping="Wrap"></TextBlock>
+            <Image x:Name="newsImage" Source="{Binding ImagePath}" Grid.Row="1" Stretch="Fill" Margin="20"  Width="700" Height="250"></Image>
+            <TextBlock x:Name="bodyTextBlock" Text="{Binding BodyString}" Grid.Row="2" FontSize="16" LineHeight="20" Margin="20" TextWrapping="Wrap"></TextBlock>
+        </Grid>
+    </ScrollViewer>
+</Window>

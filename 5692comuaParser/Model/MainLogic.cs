@@ -1,5 +1,7 @@
 ﻿using _5692comuaParser.Model.Custom_Element;
+using _5692comuaParser.ViewModel;
 using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -32,9 +34,10 @@ namespace _5692comuaParser.Model
             document.LoadHtml(content);
 
             List<HtmlNode> newsNodes = document.DocumentNode.SelectNodes("//div[@class=\'c-news-block\']").ToList();
+            //Создание коллекции, куда будут помещаться элементы асинхронно посредством присваивания пустой коллекции
             UIElementCollection newsCollection = newsStackPanel.Children;         
 
-            //Цикл "for", поддерживающий параллельное выполнение итераций. (88 картинок: обычный "for" - 13 сек.; параллельный "for" - 9 сек.)
+            //Цикл "for", поддерживающий параллельное выполнение итераций. (88 картинок: прирост в скорости 2-4 сек. (обычный "for" работает ~13 сек.))
             Parallel.For(0, newsNodes.Count, i =>
             {
                 //Выполнение итерации от имени диспетчера асинхронно (BeginInvoke)
@@ -46,7 +49,8 @@ namespace _5692comuaParser.Model
                                 newsNodes[i].SelectNodes("//span[@class=\'c-article-info__when\']/span")[i].InnerText,
                                 newsNodes[i].SelectNodes("//a[@class=\'c-news-block__title\']")[i].InnerText.Replace("&quot;", "\""),
                                 newsNodes[i].SelectNodes("//div[@class=\'c-news-block__text\']")[i].InnerText.Replace("&quot;", "\""),
-                                newsNodes[i].SelectNodes("//a[contains(@class, \'c-news-block__image\') and contains(@class, \'lazy-bg\')]")[i].Attributes["data-src"].Value
+                                newsNodes[i].SelectNodes("//a[contains(@class, \'c-news-block__image\') and contains(@class, \'lazy-bg\')]")[i].Attributes["data-src"].Value,
+                                newsNodes[i].SelectNodes("//a[@class=\'c-news-block__title\']")[i].Attributes["href"].Value
                             )
                         );
                    });

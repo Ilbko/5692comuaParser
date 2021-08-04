@@ -15,7 +15,7 @@ namespace _5692comuaParser.Model.Custom_Element
     /// </summary>
     public partial class NewsControl : UserControl
     {
-        public NewsControl(string categoryString, string dateTimeString, string headerString, string bodyString, string imagePath)
+        public NewsControl(string categoryString, string dateTimeString, string headerString, string bodyString, string imagePath, string linkString)
         {
             InitializeComponent();
 
@@ -41,7 +41,8 @@ namespace _5692comuaParser.Model.Custom_Element
                 DateTimeString = dateTimeString,
                 HeaderString = headerString,
                 BodyString = bodyString,
-                ImagePath = File.ReadAllBytes($"{MainLogic.folderName}\\{MainLogic.count}.jpg")
+                ImagePath = File.ReadAllBytes($"{MainLogic.folderName}\\{MainLogic.count}.jpg"),
+                LinkString = linkString
             };
         }
 

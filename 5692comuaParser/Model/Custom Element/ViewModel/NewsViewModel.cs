@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using _5692comuaParser.View;
+using _5692comuaParser.View.ViewModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -35,7 +37,6 @@ namespace _5692comuaParser.Model.Custom_Element.ViewModel
             set { bodyString = value; OnPropertyChanged("BodyString"); }
         }
 
-
         private byte[] imagePath;
         public byte[] ImagePath
         {
@@ -43,6 +44,13 @@ namespace _5692comuaParser.Model.Custom_Element.ViewModel
             set { imagePath = value; OnPropertyChanged("ImagePath"); }
         }
 
+        public string LinkString { get; set; }
+
+        private RelayCommand clickCommand;
+        public RelayCommand ClickCommand
+        {
+            get { return clickCommand ?? new RelayCommand(act => new ViewWindow(this.HeaderString, this.ImagePath, this.LinkString).Show()); }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = " ")
