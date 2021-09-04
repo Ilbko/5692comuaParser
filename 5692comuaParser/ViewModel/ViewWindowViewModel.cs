@@ -59,7 +59,8 @@ namespace _5692comuaParser.ViewModel
             document.LoadHtml(content);
 
             //this.BodyString = document.DocumentNode.SelectSingleNode("//div[@class=\'article-text\']").InnerText;
-            List<HtmlNode> paragraphs = document.DocumentNode.SelectNodes("//div[@class=\'article-text\']/p").ToList();
+            //List<HtmlNode> paragraphs = document.DocumentNode.SelectNodes("//div[@class=\'article-text\']/p").ToList();
+            List<HtmlNode> paragraphs = document.DocumentNode.SelectNodes("//app-model-content/p").ToList();
 
             mainParagraph = paragraphs[0].InnerText;
             paragraphs.Remove(paragraphs[0]);
